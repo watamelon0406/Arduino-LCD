@@ -1,9 +1,9 @@
 #include <dht.h>     
-#define dht_dpin A0 	           //�w�q�T���n�qPin A0 �i��  
+#define dht_dpin A0 	           //DHT 11 類比輸入 Pin A0  
 dht DHT;   
 
 String a;
-String Sch_no = "123";
+String Sch_no = "156";
 
 void setup(){  
   Serial.begin(9600);   
@@ -17,14 +17,14 @@ void loop(){
   while(Serial.available()) {
     a = Serial.readString();// read the incoming data as string
     if (a == Sch_no) {
-      DHT.read11(dht_dpin);                    //�hlibrary�̭���DHT.read11  
+      DHT.read11(dht_dpin);                      
       Serial.print("Humidity = ");   
       Serial.print(DHT.humidity);   
       Serial.print("% ");   
       Serial.print("temperature = ");   
       Serial.print(DHT.temperature);   
       Serial.println("C ");   
-      delay(1000);                                       //�C1000ms��s�@�� 
+      delay(1000);                                       //延遲1000ms
       digitalWrite(LED_BUILTIN, LOW);
     }
     else
